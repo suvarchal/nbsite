@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8"/>
+  <title>
+   nbsite — nbsite 0.4.3 documentation
+  </title>
+  <meta content="Build a tested, sphinx-based website from notebooks" name="description"/>
+  <meta content="nbsite GitHub contributors" name="author"/>
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js">
+  </script>
+  <script>
+   WebFont.load({
+      google: {
+        families: ['Source Sans Pro']
+      }
+    });
+  </script>
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="_static/css/main.css" rel="stylesheet"/>
+  <link href="_static/nbsite.css" rel="stylesheet"/>
+  <link href="_static/nbsitesite.css" rel="stylesheet"/>
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+  </script>
+  <script async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+  </script>
+  <script src="_static/js/main.js">
+  </script>
+  <script src="_static/nbsite.js">
+  </script>
+  <script src="_static/require.js">
+  </script>
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="_static/favicon.ico" rel="icon" type="image/png"/>
+  <!-- Canonical
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="/index.html" rel="canonical"/>
+ </head>
+ <body class="">
+  <header class="navigation">
+   <div class="wrapper">
+    <a class="logo" href="#">
+     <img alt="Logo" src="_static/nbsite-logo.png"/>
+    </a>
+    <a class="navigation-menu logo-text" href="#">
+     nbsite
+    </a>
+    <a class="navigation-menu-button" href="javascript:void(0)" id="js-mobile-menu">
+     Menu
+    </a>
+    <nav>
+     <ul class="navigation-menu show" id="js-navigation-menu">
+      <li class="nav-link">
+       <div style="display:inline-block;vertical-align: middle;">
+        <div class="search-bar">
+         <form action="search.html" method="get" role="search">
+          <input name="q" placeholder="Search" type="search"/>
+          <button type="submit">
+           <img alt="Search Icon" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon-black.png"/>
+          </button>
+         </form>
+        </div>
+       </div>
+      </li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+  <!-- MAIN BODY OF DOCS –––––––––––––––––– -->
+  <div class="docs section">
+   <div id="hacketyhackhack">
+    <!-- style="width:20%;margin-right: 100px;"> -->
+    <!--style="display: none;"> style="display:none;"> -->
+    <div class="toc" style="width:15%; margin-right:20px;">
+     <ul class="current">
+      <li class="toctree-l1 current">
+       <a class="current reference internal" href="#">
+        Introduction
+       </a>
+      </li>
+      <li class="toctree-l1">
+       <a class="reference internal" href="Usage.html">
+        Usage
+       </a>
+      </li>
+      <li class="toctree-l1">
+       <a class="reference internal" href="Development.html">
+        Development
+       </a>
+      </li>
+      <li class="toctree-l1">
+       <a class="reference internal" href="FAQ.html">
+        FAQ
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="content">
+    <!-- style="max-width:80%;margin-left:auto;margin-right: auto;">-->
+    <div class="section" id="nbsite">
+     <h1>
+      nbsite
+      <a class="headerlink" href="#nbsite" title="Permalink to this headline">
+       ¶
+      </a>
+     </h1>
+     <div style="width: 65%; float:left">
+      <p>
+       <strong>
+        Build a tested, sphinx-based website from notebooks
+       </strong>
+      </p>
+      <p>
+       Nbsite lets you build a website from a set of notebooks plus a minimal
+amount of config. Sites built with nbsite include
+       <a class="reference external" href="http://pyviz.github.io/pyviz/">
+        http://pyviz.github.io/pyviz/
+       </a>
+       and
+       <a class="reference external" href="https://bokeh.github.io/datashader-docs/">
+        https://bokeh.github.io/datashader-docs/
+       </a>
+       .
+      </p>
+      <p>
+       The idea behind nbsite is that notebooks can simultaneously be
+documentation (things you want to tell people about), examples (a
+starting point for people to run and use themselves), and test cases.
+      </p>
+      <p>
+       To get started using nbsite, please see the
+       <a class="reference external" href="Usage.html">
+        user guide
+       </a>
+       . However, please note that this is a pre-release
+version of nbsite. If you use nbsite, you may subsequently have to
+change your config on upgrading to a newer version of nbsite. You will
+likely encounter limitations (not all of the above ‘idea behind
+nbsite’ is easily available yet via this project) and
+problems. However, please file issues or ask questions on
+       <a class="reference external" href="https://github.com/ioam/nbsite/issues">
+        GitHub
+       </a>
+      </p>
+      <p>
+       At some point soon we will describe when you should or should not
+consider using nbsite instead of various alternatives, including:
+      </p>
+      <blockquote>
+       <div>
+        <ul class="simple">
+         <li>
+          static site generators with support for notebooks: nikola,
+pelican, jupytersite, hugo, (whatever
+          <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html">
+           https://seaborn.pydata.org/tutorial/color_palettes.html
+          </a>
+          uses),
+(whatever scikit-learn uses), (wahtever scikit-image uses), …
+         </li>
+         <li>
+          notebook hosting plus viewing: github+nbviewer
+(e.g.
+          <a class="reference external" href="http://nbviewer.jupyter.org/github/pyviz/pyviz/blob/master/notebooks/00-welcome.ipynb">
+           http://nbviewer.jupyter.org/github/pyviz/pyviz/blob/master/notebooks/00-welcome.ipynb
+          </a>
+          ),
+anaconda.org
+(e.g.
+          <a class="reference external" href="https://anaconda.org/cball/ioam-paramnb-index/notebook">
+           https://anaconda.org/cball/ioam-paramnb-index/notebook
+          </a>
+          );
+…
+         </li>
+         <li>
+          live notebook hosting: mybinder
+(e.g.
+          <a class="reference external" href="https://mybinder.org/v2/gh/pyviz/pyviz/master?filepath=notebooks%2F12-parameters-and-widgets.ipynb">
+           https://mybinder.org/v2/gh/pyviz/pyviz/master?filepath=notebooks%2F12-parameters-and-widgets.ipynb
+          </a>
+          );
+…?
+         </li>
+        </ul>
+       </div>
+      </blockquote>
+      <p>
+       Notes for nbsite developers:
+       <a class="reference external" href="Development.html">
+        Development
+       </a>
+      </p>
+      <p>
+       Work-in-progress sites built using nbsite (currently present to keep
+keep track; will eventually remove):
+      </p>
+      <blockquote>
+       <div>
+        <ul class="simple">
+         <li>
+          <a class="reference external" href="https://ioam.github.io/parambokeh/">
+           https://ioam.github.io/parambokeh/
+          </a>
+          (
+          <a class="reference external" href="https://github.com/ioam/parambokeh">
+           parambokeh
+          </a>
+          )
+         </li>
+         <li>
+          <a class="reference external" href="https://ioam.github.io/geoviews/">
+           https://ioam.github.io/geoviews/
+          </a>
+          (
+          <a class="reference external" href="https://github.com/ioam/geoviews">
+           geoviews
+          </a>
+          )
+         </li>
+         <li>
+          <a class="reference external" href="https://bokeh.github.io/datashader-docs/">
+           https://bokeh.github.io/datashader-docs/
+          </a>
+          (
+          <a class="reference external" href="https://github.com/bokeh/datashader/">
+           datashader
+          </a>
+          )
+         </li>
+         <li>
+          <a class="reference external" href="https://pyviz.github.io/pyviz/">
+           https://pyviz.github.io/pyviz/
+          </a>
+          (
+          <a class="reference external" href="https://github.com/pyviz/pyviz">
+           pyviz
+          </a>
+          )
+         </li>
+         <li>
+          <a class="reference external" href="https://ceball.github.io/">
+           https://ceball.github.io/
+          </a>
+          (
+          <a class="reference external" href="https://github.com/ContinuumIO/tmphvdocs/tree/tmphvdocs">
+           tmp demo site
+          </a>
+          ; note:
+built from scratch, starting from nbsite template)
+         </li>
+         <li>
+          <a class="reference external" href="https://ioam.github.io/nbsite/">
+           https://ioam.github.io/nbsite/
+          </a>
+          (
+          <a class="reference external" href="https://github.com/ioam/nbsite">
+           nbsite
+          </a>
+          ; this site)
+         </li>
+         <li>
+          <a class="reference external" href="https://bokeh.github.io/colorcet/">
+           https://bokeh.github.io/colorcet/
+          </a>
+          (
+          <a class="reference external" href="https://github.com/bokeh/colorcet">
+           colorcet
+          </a>
+          )
+         </li>
+         <li>
+          <a class="reference external" href="https://ceball.github.io/xarray_filters/">
+           https://ceball.github.io/xarray_filters/
+          </a>
+          (
+          <a class="reference external" href="https://github.com/ContinuumIO/xarray_filters">
+           xarray_filters
+          </a>
+          )
+         </li>
+         <li>
+          <a class="reference external" href="https://ioam.github.io/paramnb/">
+           https://ioam.github.io/paramnb/
+          </a>
+          (
+          <a class="reference external" href="https://github.com/ioam/paramnb">
+           paramnb
+          </a>
+          )
+         </li>
+        </ul>
+       </div>
+      </blockquote>
+     </div>
+     <div class="toctree-wrapper compound">
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- END MAIN BODY OF DOCS ––––––––––––– -->
+  <footer class="footer">
+   <div class="footer-links">
+    <ul>
+     <li>
+      <span class="footer-title">
+       Links
+      </span>
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <span class="footer-title">
+       Join Us
+      </span>
+     </li>
+     <li>
+      <a href="//github.com/ioam/nbsite">
+       Github
+      </a>
+     </li>
+    </ul>
+    <ul class="copyright">
+     <li>
+      2017 nbsite GitHub contributors
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- Google Analytics -->
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61554933-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <!-- MathJax Config -->
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+  </script>
+  <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ </body>
+</html>

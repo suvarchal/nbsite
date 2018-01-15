@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8"/>
+  <title>
+   Usage — nbsite 0.4.3 documentation
+  </title>
+  <meta content="Build a tested, sphinx-based website from notebooks" name="description"/>
+  <meta content="nbsite GitHub contributors" name="author"/>
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js">
+  </script>
+  <script>
+   WebFont.load({
+      google: {
+        families: ['Source Sans Pro']
+      }
+    });
+  </script>
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="_static/css/main.css" rel="stylesheet"/>
+  <link href="_static/nbsite.css" rel="stylesheet"/>
+  <link href="_static/nbsitesite.css" rel="stylesheet"/>
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+  </script>
+  <script async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+  </script>
+  <script src="_static/js/main.js">
+  </script>
+  <script src="_static/nbsite.js">
+  </script>
+  <script src="_static/require.js">
+  </script>
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="_static/favicon.ico" rel="icon" type="image/png"/>
+  <!-- Canonical
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="/Usage.html" rel="canonical"/>
+ </head>
+ <body class="">
+  <header class="navigation">
+   <div class="wrapper">
+    <a class="logo" href="index.html">
+     <img alt="Logo" src="_static/nbsite-logo.png"/>
+    </a>
+    <a class="navigation-menu logo-text" href="index.html">
+     nbsite
+    </a>
+    <a class="navigation-menu-button" href="javascript:void(0)" id="js-mobile-menu">
+     Menu
+    </a>
+    <nav>
+     <ul class="navigation-menu show" id="js-navigation-menu">
+      <li class="nav-link">
+       <div style="display:inline-block;vertical-align: middle;">
+        <div class="search-bar">
+         <form action="search.html" method="get" role="search">
+          <input name="q" placeholder="Search" type="search"/>
+          <button type="submit">
+           <img alt="Search Icon" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon-black.png"/>
+          </button>
+         </form>
+        </div>
+       </div>
+      </li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+  <!-- MAIN BODY OF DOCS –––––––––––––––––– -->
+  <div class="docs section">
+   <div id="hacketyhackhack">
+    <!-- style="width:20%;margin-right: 100px;"> -->
+    <!--style="display: none;"> style="display:none;"> -->
+    <div class="toc" style="width:15%; margin-right:20px;">
+     <ul class="current">
+      <li class="toctree-l1">
+       <a class="reference internal" href="index.html">
+        Introduction
+       </a>
+      </li>
+      <li class="toctree-l1 current">
+       <a class="current reference internal" href="#">
+        Usage
+       </a>
+      </li>
+      <li class="toctree-l1">
+       <a class="reference internal" href="Development.html">
+        Development
+       </a>
+      </li>
+      <li class="toctree-l1">
+       <a class="reference internal" href="FAQ.html">
+        FAQ
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="content">
+    <!-- style="max-width:80%;margin-left:auto;margin-right: auto;">-->
+    <div class="section" id="usage">
+     <h1>
+      Usage
+      <a class="headerlink" href="#usage" title="Permalink to this headline">
+       ¶
+      </a>
+     </h1>
+     <div class="cell border-box-sizing text_cell rendered">
+      <div class="prompt input_prompt">
+      </div>
+      <div class="inner_cell">
+       <div class="text_cell_render border-box-sizing rendered_html">
+        <p>
+         Note 1: this guide currently omits any mention of notebook testing; that will come in a future version.
+        </p>
+        <p>
+         Note 2: this is a pre-release version of nbsite, so you may subsequently have to change your config on upgrading to a newer version of nbsite. You may also encounter problems and/or limitations - please file issues or ask questions on
+         <a href="https://github.com/ioam/nbsite/issues">
+          GitHub
+         </a>
+         .
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="cell border-box-sizing text_cell rendered">
+      <div class="prompt input_prompt">
+      </div>
+      <div class="inner_cell">
+       <div class="text_cell_render border-box-sizing rendered_html">
+        <h2 id="Prerequisites">
+         Prerequisites
+         <a class="anchor-link" href="#Prerequisites">
+          ¶
+         </a>
+        </h2>
+        <ol>
+         <li>
+          <p>
+           You want a 'static', fairly self contained site (i.e. just an ordinary web server is required - you can build and serve locally, or copy the build directory to a remote server).
+          </p>
+         </li>
+         <li>
+          <p>
+           You have one or more sets of notebooks (e.g.
+           <code>
+            notebooks/
+           </code>
+           , or
+           <code>
+            examples/getting_started
+           </code>
+           +
+           <code>
+            examples/user_guide
+           </code>
+           +
+           <code>
+            examples/gallery
+           </code>
+           ). Note: current expectation is for there to be no title in the notebook itself; instead, the title will be taken from filename. E.g.
+           <code>
+            1_The_Filename.ipynb
+           </code>
+           will result in a title of
+           <code>
+            1 The Filename
+           </code>
+           . Additionally, notebooks should use level 2 headings as their highest heading level (level 1 will used for the title). However, all of this may change - see
+           <a href="https://github.com/ioam/nbsite/issues/18">
+            issue 18
+           </a>
+           .
+          </p>
+         </li>
+         <li>
+          <p>
+           The packages used by the notebooks are already installed in the environment into which you will install nbsite.
+          </p>
+         </li>
+         <li>
+          <p>
+           (optional, for API docs) Any packages for which you want to generate API docs are also installed (which could be via e.g.
+           <code>
+            pip install -e /path/to/pkg
+           </code>
+           ).
+          </p>
+         </li>
+         <li>
+          <p>
+           You are using mac or linux (might work on windows, but currently untested)
+          </p>
+         </li>
+         <li>
+          <p>
+           You are using holoviews for visualization (other packages might work, or no having holoviews might work, but currently untested; if you don't have holoviews, you will at least need to override
+           <code>
+            nbbuild_ipython_startup
+           </code>
+           in
+           <code>
+            conf.py
+           </code>
+           , setting it to e.g.
+           <code>
+            ""
+           </code>
+           ).
+          </p>
+         </li>
+        </ol>
+       </div>
+      </div>
+     </div>
+     <div class="cell border-box-sizing text_cell rendered">
+      <div class="prompt input_prompt">
+      </div>
+      <div class="inner_cell">
+       <div class="text_cell_render border-box-sizing rendered_html">
+        <h2 id="Installation">
+         Installation
+         <a class="anchor-link" href="#Installation">
+          ¶
+         </a>
+        </h2>
+        <ol>
+         <li>
+          <p>
+           <code>
+            conda install -c conda-forge python=3.6* notebook ipython sphinx beautifulsoup4 graphviz
+           </code>
+          </p>
+         </li>
+         <li>
+          <p>
+           <code>
+            pip install nbsite
+           </code>
+          </p>
+         </li>
+         <li>
+          <p>
+           <code>
+            pip install sphinx_ioam_theme
+           </code>
+           (or you could create/use an alternative theme - but currently untested)
+          </p>
+         </li>
+        </ol>
+       </div>
+      </div>
+     </div>
+     <div class="cell border-box-sizing text_cell rendered">
+      <div class="prompt input_prompt">
+      </div>
+      <div class="inner_cell">
+       <div class="text_cell_render border-box-sizing rendered_html">
+        <h2 id="One-time-setup">
+         One time setup
+         <a class="anchor-link" href="#One-time-setup">
+          ¶
+         </a>
+        </h2>
+        <p>
+         You can skip and/or modify various steps below depending on what you already have. If you do skip a step, you may need to add something to one of your existing files (should be able to figure that out by looking at the corresponding file in
+         <code>
+          nbsite/tmplate
+         </code>
+         ; e.g. if you have existing conf.py you will need to copy in relevant content from nbsite/tmplate/conf.py).
+        </p>
+        <ol>
+         <li>
+          <p>
+           Make a doc dir:
+           <code>
+            mkdir doc &amp;&amp; cd doc
+           </code>
+          </p>
+         </li>
+         <li>
+          <p>
+           Create a set of basic pages:
+           <code>
+            nbsite_from_tmplate.py .
+           </code>
+           (will not overwrite existing files)
+          </p>
+         </li>
+         <li>
+          <p>
+           Edit conf.py as appropriate for your project.
+          </p>
+         </li>
+         <li>
+          <p>
+           Edit doc/index.rst toctree to match pages in conf.py
+          </p>
+         </li>
+         <li>
+          <p>
+           Edit/delete other pages as desired, or add pages. Be sure to update toctrees in index pages as you do this.
+          </p>
+         </li>
+         <li>
+          <p>
+           Commit initial version of your pages:
+           <code>
+            git commit -m "something" FAQ.rst Makefile about.rst conf.py index.rst latest_news.html ...
+           </code>
+           (etc)
+          </p>
+         </li>
+        </ol>
+       </div>
+      </div>
+     </div>
+     <div class="cell border-box-sizing text_cell rendered">
+      <div class="prompt input_prompt">
+      </div>
+      <div class="inner_cell">
+       <div class="text_cell_render border-box-sizing rendered_html">
+        <h2 id="Building-the-site">
+         Building the site
+         <a class="anchor-link" href="#Building-the-site">
+          ¶
+         </a>
+        </h2>
+        <ol>
+         <li>
+          <p>
+           <code>
+            export MODULE=yourmodule
+           </code>
+           ,
+           <code>
+            export ORG=yourorg
+           </code>
+           ,
+           <code>
+            export PROJECT=yourproject
+           </code>
+           (or just replace as appropriate in commands below)
+          </p>
+         </li>
+         <li>
+          <p>
+           <em>
+            (optional, if you want API docs)
+           </em>
+           Generate API docs:
+           <code>
+            nbsite_generate_modules.py ${MODULE} -d ./Reference_Manual -n ${PROJECT} -e tests
+           </code>
+           (assuming you have
+           <code>
+            tests
+           </code>
+           and do not want it to appear in the API docs)
+          </p>
+         </li>
+         <li>
+          <p>
+           Generate rst containers for notebooks (assuming they are in
+           <code>
+            ../examples
+           </code>
+           :
+           <code>
+            nbsite_nbpagebuild.py ${ORG} ${PROJECT} ../examples .
+           </code>
+          </p>
+         </li>
+         <li>
+          <p>
+           <em>
+            (optional, if you want gallery)
+           </em>
+           Make the gallery:
+           <code>
+            nbsite_gallery.py ../
+           </code>
+          </p>
+         </li>
+         <li>
+          <p>
+           Make site:
+           <code>
+            sphinx-build -b html . ./_build/html
+           </code>
+          </p>
+         </li>
+         <li>
+          <p>
+           Update inter-notebook links:
+           <code>
+            nbsite_fix_links.py _build/html
+           </code>
+          </p>
+         </li>
+         <li>
+          <p>
+           Do your notebooks need to access local assets such as images? If so, e.g.
+           <code>
+            cp -r ../examples/assets _build/html/
+           </code>
+           .
+          </p>
+         </li>
+         <li>
+          <p>
+           View the result in a browser at localhost:8000:
+           <code>
+            pushd _build/html &amp;&amp; python -m http.server
+           </code>
+          </p>
+         </li>
+        </ol>
+       </div>
+      </div>
+     </div>
+     <div class="cell border-box-sizing text_cell rendered">
+      <div class="prompt input_prompt">
+      </div>
+      <div class="inner_cell">
+       <div class="text_cell_render border-box-sizing rendered_html">
+        <h2 id="Re-building/updating-the-site">
+         Re-building/updating the site
+         <a class="anchor-link" href="#Re-building/updating-the-site">
+          ¶
+         </a>
+        </h2>
+        <h3 id="rst-pages">
+         rst pages
+         <a class="anchor-link" href="#rst-pages">
+          ¶
+         </a>
+        </h3>
+        <ul>
+         <li>
+          Added, removed, or edited an rst page? Update any toc as necessary (e.g. removing an entry), then re-run step 5 above.
+         </li>
+        </ul>
+        <h3 id="Notebooks">
+         Notebooks
+         <a class="anchor-link" href="#Notebooks">
+          ¶
+         </a>
+        </h3>
+        <ul>
+         <li>
+          <p>
+           Removed a notebook? You have to manually delete the corresponding rst container file.
+          </p>
+         </li>
+         <li>
+          <p>
+           Edited a notebook? Re-run step 5 above. It ought to only re-generate what it needs to (i.e. what's changed), but that probably doesn't work quite yet. You may need to manually remove a 'temp evaluated' notebook and corresponding html file (both from
+           <code>
+            _build/html/path/to/notebook
+           </code>
+           ) to have a notebook re-run and turned into html. If you haven't edited the notebook but want it to re-run for another reason e.g. changed dependencies, then you will also need to
+           <code>
+            touch
+           </code>
+           the source notebook.
+          </p>
+         </li>
+         <li>
+          <p>
+           Added a new notebook? Re-run step 3 then proceed as for 'edited', above.
+          </p>
+         </li>
+        </ul>
+        <h3 id="Reference-manual">
+         Reference manual
+         <a class="anchor-link" href="#Reference-manual">
+          ¶
+         </a>
+        </h3>
+        <ul>
+         <li>
+          If you are working on the reference manual, TODO (depends on commit or not).
+         </li>
+        </ul>
+       </div>
+      </div>
+     </div>
+     <div class="cell border-box-sizing text_cell rendered">
+      <div class="prompt input_prompt">
+      </div>
+      <div class="inner_cell">
+       <div class="text_cell_render border-box-sizing rendered_html">
+        <h2 id="Customizing-the-site">
+         Customizing the site
+         <a class="anchor-link" href="#Customizing-the-site">
+          ¶
+         </a>
+        </h2>
+        <p>
+         You can customize the style of the site, and you can customize how the IPython notebooks are run.
+        </p>
+        <h3 id="Style">
+         Style
+         <a class="anchor-link" href="#Style">
+          ¶
+         </a>
+        </h3>
+        <p>
+         The
+         <code>
+          html_theme
+         </code>
+         is
+         <code>
+          sphinx_ioam_theme
+         </code>
+         . You may be able to use a different theme (untested). However, you can set the following
+         <code>
+          html_theme_options
+         </code>
+         in conf.py:
+        </p>
+        <ul>
+         <li>
+          <code>
+           logo
+          </code>
+          and
+          <code>
+           favicon
+          </code>
+          : provide paths relative to
+          <code>
+           html_static_path
+          </code>
+          (
+          <code>
+           doc/_static
+          </code>
+          by default)
+         </li>
+         <li>
+          <code>
+           custom_css
+          </code>
+          : path relative to
+          <code>
+           html_static_path
+          </code>
+          overriding styles. Styles come first from the theme's
+          <code>
+           main.css
+          </code>
+          (see
+          <a href="https://github.com/ioam/sphinx_ioam_theme/issues/1">
+           theme issue
+          </a>
+          ), which is extended/overridden by nbsite's own css
+          <code>
+           nbsite/_shared_static/nbsite.css
+          </code>
+          , which can then be further extended/overridden by your site's own css.
+         </li>
+         <li>
+          js TODO
+         </li>
+        </ul>
+        <h3 id="Running-of-IPython-notebooks">
+         Running of IPython notebooks
+         <a class="anchor-link" href="#Running-of-IPython-notebooks">
+          ¶
+         </a>
+        </h3>
+        <p>
+         In conf.py, you can set options to control notebook execution:
+        </p>
+        <ul>
+         <li>
+          <code>
+           nbbuild_cell_timeout
+          </code>
+          : timeout per cell (seconds), e.g.
+          <code>
+           100
+          </code>
+         </li>
+         <li>
+          <code>
+           nbbuild_ipython_startup
+          </code>
+          : code (as string) to execute before running the first cell of each notebook. Defaults to
+          <a href="https://github.com/ioam/nbsite/blob/master/nbsite/ipystartup.py">
+           nbsite's ipython startup code
+          </a>
+          . E.g.
+          <code>
+           "module.special_swith=False"
+          </code>
+          .
+         </li>
+         <li>
+          <code>
+           nbbuild_patterns_to_take_along
+          </code>
+          : list of glob patterns to match files that should be copied alongside a notebook. E.g. holoviews is configured to save data in external json files to improve page loading times, so this defaults to
+          <code>
+           ["*.json"]
+          </code>
+          .
+         </li>
+        </ul>
+       </div>
+      </div>
+     </div>
+     <div class="cell border-box-sizing text_cell rendered">
+      <div class="prompt input_prompt">
+      </div>
+      <div class="inner_cell">
+       <div class="text_cell_render border-box-sizing rendered_html">
+        <h2 id="Automatic-deployment-to-github-pages">
+         Automatic deployment to github pages
+         <a class="anchor-link" href="#Automatic-deployment-to-github-pages">
+          ¶
+         </a>
+        </h2>
+        <ol>
+         <li>
+          <p>
+           Remove unnecessary files:
+           <code>
+            nbsite_cleandisthtml.py ./_build/html take_a_chance
+           </code>
+          </p>
+         </li>
+         <li>
+          <p>
+           Bypass Jekyll on github pages:
+           <code>
+            touch ./_build/html/.nojekyll
+           </code>
+          </p>
+         </li>
+         <li>
+          <p>
+           Add something like this to your
+           <code>
+            .travis.yml
+           </code>
+           file (but modify for your own preferences):
+          </p>
+         </li>
+        </ol>
+        <pre><code>deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: ./_build/html
+  on:
+    branch: master</code></pre>
+        <p>
+         See nbsite's
+         <code>
+          .travis.yml
+         </code>
+         for an example.
+        </p>
+       </div>
+      </div>
+     </div>
+     <hr class="docutils"/>
+     <p>
+      <a class="reference external" href="https://raw.githubusercontent.com/ioam/nbsite/master/examples/Usage.ipynb">
+       Right click to download this notebook from GitHub.
+      </a>
+     </p>
+    </div>
+   </div>
+  </div>
+  <!-- END MAIN BODY OF DOCS ––––––––––––– -->
+  <footer class="footer">
+   <div class="footer-links">
+    <ul>
+     <li>
+      <span class="footer-title">
+       Links
+      </span>
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <span class="footer-title">
+       Join Us
+      </span>
+     </li>
+     <li>
+      <a href="//github.com/ioam/nbsite">
+       Github
+      </a>
+     </li>
+    </ul>
+    <ul class="copyright">
+     <li>
+      2017 nbsite GitHub contributors
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- Google Analytics -->
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61554933-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <!-- MathJax Config -->
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+  </script>
+  <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ </body>
+</html>
